@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import Navabr from '../components/Navbar';
-import Landing from '../components/Landing';
-import Login from '../components/Login';
-import Profile from '../components/Profile';
-import Register from '../components/Register';
+import Navabr from './components/Navbar';
+import Landing from './components/Landing';
+import Login from './components/Login';
+import Profile from './components/Profile';
+import Register from './components/Register';
 
 
 class App extends Component {

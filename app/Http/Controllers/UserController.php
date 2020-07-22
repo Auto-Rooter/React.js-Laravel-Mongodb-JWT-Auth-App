@@ -16,8 +16,9 @@ use Tymon\JWTAuth\JWTManager as JWT;
 
 class UserController extends Controller
 {
-    public function register(Request $request){
-        $validator = Validator::make($request->json()->all() , [
+    public function register(Request $request)
+    {
+            $validator = Validator::make($request->json()->all() , [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6', 
@@ -37,7 +38,7 @@ class UserController extends Controller
 
         return response()->json(compact('user','token'),201);
     }
-
+    
     public function login(Request $request)
     {
         $credentials = $request->json()->all();
@@ -69,5 +70,11 @@ class UserController extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
         }
         return response()->json(compact('user'));
+
+        // php artisan key:generate
+        // php artisan jwt:secret
+        // php artisan cache:clear
+        // php artisan config:clear
     }
+
 }
